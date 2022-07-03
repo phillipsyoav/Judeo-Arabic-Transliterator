@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="eng" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="maps/bahya.js"></script>
+  <script src="maps/gez2heb.js"></script>
+  <script  src="maps/tufaha.js">
+    <script>src="js/gershoni.js"</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+  <!--script src="https://www.google-analytics.com/analytics.js" async></script-->
+  <script type="text/javascript" src="/js/main.js"></script>
+  <meta name="theme-color" content="#fafafa">
+
+</head>
+
+<body>
+<!-- Add your site or application content here -->
+<h1 >Judeo-Arabic(JRB) - Arabic(SA) Translitetator</h1>
+<hr>
+
+<!--  <section class="rows" >-->
+<div class="container">
+  <div>
+    <form name="qtxt" action="javascript:return false">
+      <label id='mdl' for="md">Choose Mode</label>
+      <select name="toLang" id="md">
+        <option selected value="JDA2SA">JDA2SA</option>
+        <option value="SA2JDA">SA2JDA</option>
+        <option value="GEZ2HEB">GEZ2HEB</option>
+      </select>
+      <label id="dll" for="dl">Select Dialect Map</label>
+      <select name="dialect" id="dl">
+        <option selected value="BAHYA">Bahya/Qafeh</option>
+        <option value="tufaha.json">Kitab AL-Tufaha</option>
+        <option value="gershoni.json">Dalalah al-Hairun/Gerdhoni"</option>
+        <option value="GEZ2HEB">gez2heb</option>
+      </select>
+      <button name="set" type="button"
+              onclick="document.outext.res.value=translit(document.qtxt.intx.value, document.qtxt.toLang.value, document.qtxt.dialect.value)">OK
+      </button>
+      <label>Input Text
+        <textarea name="intx">
+          </textarea>
+      </label>
+    </form>
+  </div>
+  <div>
+    <form name="outext" action="javascript:return false">
+
+      <label>Result
+        <textarea name="res">
+            </textarea>
+      </label>
+    </form>
+  </div>
+</div>
+<!--  </section>-->
+<script>
+
+  function translit(s, md, dm) {
+    let st = s;
+    var toLang= toLang=eval(dm)[md]
+    for(let p in toLang){
+      st=st.replaceAll(eval("/"+p+"/g"), toLang[p]);
+    }
+    return st.toString();
+  }
+</script>
+</body>
+
+</html>
