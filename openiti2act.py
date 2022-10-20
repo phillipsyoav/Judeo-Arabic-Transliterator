@@ -52,7 +52,8 @@ class OpenITI2ACT:
         repl = [("أ", "ا"), ("ٱ", "ا"), ("آ", "ا"), ("إ", "ا"),    # alifs
                 ("ى", "ي"),                                        # alif maqsura
                 ("يء", "ي"), ("ىء", "ي"), ("ؤ", "و"), ("ئ", "ي"),("ء",""),  # hamzas
-                ]
+                 ("ة","ه") # ta marbuta
+               ]
         return ara.normalize(text, repl)
 
     def text_cleaner(self,text):
@@ -79,9 +80,9 @@ class OpenITI2ACT:
         return {"ID":id, "URL":src,"Meta":md,"txt":txt}
 
     def add_record(self,data, local_file):
-        with open(local_file, "a") as fp:
+        with open(local_file, "a", newline="\n") as fp:
             json.dump(data, fp, ensure_ascii=False)
-            fp.write("\r\n")
+            fp.write("\n")
 
     def getSegments(self,srcDict,src, categories=["OpenITI"]):
         '''
