@@ -1,7 +1,7 @@
 const BAHYA = {
   JDA2SA: {
 
-    '\u0027|\u0039': '\u0307',//HEBREW PUNCTUATION GERESH
+    '\u0027': '\u0307',//HEBREW PUNCTUATION GERESH
     '\u05D2\u0307': '\u062C', //ج<-ג̇
     '\u05D3\u0307': '\u0630', //ذ<-ד̇
     '\u05D4\u05bf': '\u0629', //ة<-ה̇
